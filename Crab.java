@@ -8,33 +8,27 @@ public class Crab extends Actor
     private int numOfWorms = 8;
     public void act()
     {
-        move(3);
-        turnAtEdge();
         checkKeyPress();
         onCollision();
-    }
-    //Turns Crab at edge
-    private void turnAtEdge()
-    {
-        if(isAtEdge())
-        {
-             turn(50);   
-        }
     }
     //Checks for user key presses so the user can turn the crab
     private void checkKeyPress()
     {
-        if(Greenfoot.isKeyDown("right"))
+        if(Greenfoot.isKeyDown("up"))
         {
-            turn(4);
+            setLocation(getX(),getY()-3);
         }
-        if(Greenfoot.isKeyDown("left"))
+        if(Greenfoot.isKeyDown("down"))
         {
-            turn(-4);
+            setLocation(getX(),getY()+3);
         }
-         if(Greenfoot.isKeyDown("up"))
+         if(Greenfoot.isKeyDown("left"))
         {
-            Greenfoot.delay(10);
+            setLocation(getX()-3,getY());
+        }
+         if(Greenfoot.isKeyDown("right"))
+        {
+            setLocation(getX()+3,getY());
         }
     }
     //Checks for collisions with other objects
