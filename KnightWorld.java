@@ -1,12 +1,12 @@
 import greenfoot.*;  // (Actor, World, Greenfoot, GreenfootImage)
 
-public class CrabWorld extends World
+public class KnightWorld extends World
 {
     /**
-     * Create the crab world (the beach). Our world has a size 
+     * Create the Knight world (the beach). Our world has a size 
      * of 560x560 cells, where every cell is just 1 pixel.
      */
-    public CrabWorld() 
+    public KnightWorld() 
     {
         super(560, 560, 1);
         prepare();
@@ -18,8 +18,8 @@ public class CrabWorld extends World
      */
     private void prepare()
     {
-        Crab crab = new Crab();
-        addObject(crab,179,213);
+        Knight Knight = new Knight();
+        addObject(Knight,179,213);
         Lobster lobster = new Lobster();
         addObject(lobster,436,489);
         Worm worm = new Worm();
@@ -38,5 +38,18 @@ public class CrabWorld extends World
         addObject(worm7,187,92);
         Worm worm8 = new Worm();
         addObject(worm8,464,429);
+        SpikeWall spikeWall = new SpikeWall();
+        addObject(spikeWall,337,159);
+        SpikeWall spikeWall2 = new SpikeWall();
+        addObject(spikeWall2,424,340);
+        SpikeWall spikeWall3 = new SpikeWall();
+        addObject(spikeWall3,155,287);
+        Knight.setLocation(185,178);
+        Knight.setLocation(177,195);
+        Knight.setLocation(88,135);
+        Knight.setLocation(107,142);
+        Knight.setLocation(1024,255);
+        Knight.setLocation(84,115);
+        
     }
 }

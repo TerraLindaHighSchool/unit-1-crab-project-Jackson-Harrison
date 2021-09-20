@@ -1,34 +1,41 @@
 import greenfoot.*;
 
 /**
- * This class defines a crab. Crabs live on the beach.
+ * This class defines a Knight. Knights live on the beach.
  */
-public class Crab extends Actor
+public class Knight extends Actor
 {
     private int numOfWorms = 8;
+   
+    public Knight()
+    {
+        GreenfootImage image = getImage();
+        image.scale(image.getWidth() - 400, image.getHeight() - 400);
+        setImage(image);
+    }
     public void act()
     {
         checkKeyPress();
         onCollision();
     }
-    //Checks for user key presses so the user can turn the crab
+    //Checks for user key presses so the user can turn the Knight
     private void checkKeyPress()
     {
         if(Greenfoot.isKeyDown("up"))
         {
-            setLocation(getX(),getY()-3);
+            setLocation(getX(),getY()-4);
         }
         if(Greenfoot.isKeyDown("down"))
         {
-            setLocation(getX(),getY()+3);
+            setLocation(getX(),getY()+4);
         }
          if(Greenfoot.isKeyDown("left"))
         {
-            setLocation(getX()-3,getY());
+            setLocation(getX()-4,getY());
         }
          if(Greenfoot.isKeyDown("right"))
         {
-            setLocation(getX()+3,getY());
+            setLocation(getX()+4,getY());
         }
     }
     //Checks for collisions with other objects
@@ -42,7 +49,7 @@ public class Crab extends Actor
             // *** Winning the game *******************
             if(numOfWorms == 0)
             {
-                Greenfoot.setWorld(new WinScreen());
+                Greenfoot.setWorld(new Winscreen());
                Greenfoot.playSound("fanfare.wav");
                 Greenfoot.stop();
             }
@@ -53,7 +60,12 @@ public class Crab extends Actor
             Greenfoot.playSound("au.wav");
             Greenfoot.stop();
         }
+        if(isTouching(SpikeWall.class))
+        {
+            Greenfoot.playSound("au.wav");
+            Greenfoot.stop();
+        }
+    
     }
 }
-
 

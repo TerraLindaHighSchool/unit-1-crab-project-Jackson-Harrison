@@ -16,8 +16,29 @@ public class Lobster extends Actor
     {
         move(3);
         turnAtEdge();
+        delayUp();
+        turnToCrab();
     }
-    //Turns Crab at edge
+    //Janky implementation for adding delay to actions.
+    private int actDelay = 100;
+    private void delayUp()
+    {
+     actDelay++;
+         if (actDelay == 100)
+        {
+            actDelay = 0;
+        }
+    }
+    //Turns lobster to Crab
+    private void turnToCrab()
+    {
+        if (actDelay == 80)
+        {
+            Actor Crab = getWorld().getObjects(Knight.class).get(0);
+            turnTowards(Crab.getX(), Crab.getY());
+        }
+    }
+    //Turns lobster at edge
     private void turnAtEdge()
     {
         if(isAtEdge())
